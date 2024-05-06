@@ -1859,7 +1859,6 @@ workflows:
           name: op-conductor-docker-build
           docker_name: op-conductor
           docker_tags: <<pipeline.git.revision>>,<<pipeline.git.branch>>
-          requires: ['op-stack-go-docker-build']
           platforms: "linux/amd64,linux/arm64"
           publish: true
           context:
