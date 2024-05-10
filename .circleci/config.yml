@@ -1859,7 +1859,11 @@ workflows:
           name: op-conductor-docker-build
           docker_name: op-conductor
           docker_tags: <<pipeline.git.revision>>,<<pipeline.git.branch>>
-          # op-conductor is not part of the devnet, we don't save it.
+          requires: ['op-stack-go-docker-build']
+          platforms: "linux/amd64,linux/arm64"
+          publish: true
+          context:
+            - oplabs-gcr
       - docker-build:
           name: op-heartbeat-docker-build
           docker_name: op-heartbeat
